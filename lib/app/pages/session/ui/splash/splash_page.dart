@@ -21,29 +21,5 @@ class SplashPage extends GetView<SplashController> {
         ),
       ),
     );
-
-    // Scaffold(
-    //     backgroundColor: primaryColor,
-    //     body: AnimatedBuilder(
-    //         animation: controller.animationSize!,
-    //         builder: (context, widget) {
-    //           return Center(
-    //             child: Container(
-    //               constraints: BoxConstraints(minHeight: 0),
-    //               width: controller.animationSize!.value,
-    //               child: Padding(
-    //                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
-    //                 child: Image.asset('assets/images/marvel.jpeg',
-    //                     width: 140, height: 80),
-    //               ),
-    //             ),
-    //           );
-    //         }));
-    // Scaffold(
-    //   backgroundColor: primaryColor,
-    //   body: Center(
-    //     child: Image.asset('assets/images/marvel.jpeg', width: 140, height: 80),
-    //   ),
-    // );
   }
 }
