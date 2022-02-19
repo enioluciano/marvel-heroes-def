@@ -2,7 +2,7 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_test/app/core/routes/routes.dart';
-import 'package:project_test/app/core/util/notification.dart';
+import 'package:project_test/app/core/ui/widgets/notification.dart';
 import 'package:project_test/app/pages/characters/infra/models/character_model.dart';
 import 'package:project_test/app/pages/characters/presenter/usecases/characters_usecase.dart';
 
