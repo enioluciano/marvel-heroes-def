@@ -44,6 +44,7 @@ dependencies:
   bot_toast: ^4.0.1
   mockito: ^5.0.16
   build_runner: ^2.1.5
+  logger: ^1.1.0
 
 dev_dependencies:
   flutter_test:

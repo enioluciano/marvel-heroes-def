@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
-import 'package:project_test/app/core/services/urls.dart';
+import 'package:project_test/app/core/util/urls.dart';
 
 class Helper {
   static String publicApiKey = "201792b9215ebe22fb64253fa1d88b80";

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get/get_connect/http/src/status/http_status.dart';
-import 'package:project_test/app/core/services/urls.dart';
+import 'package:project_test/app/core/util/urls.dart';
 import 'package:project_test/app/core/util/helper.dart';
 import 'package:project_test/app/pages/characters/infra/datasources/characters_datasource.dart';
 import 'package:project_test/app/pages/characters/infra/exceptions/exception.dart';
