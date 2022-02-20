@@ -1,12 +1,17 @@
+import 'package:project_test/app/core/helpers/logger.dart';
 import 'package:project_test/app/pages/characters/domain/infra/characters_repository.dart';
 import 'package:project_test/app/pages/characters/infra/datasources/characters_datasource.dart';
 import 'package:project_test/app/pages/characters/infra/exceptions/exception.dart';
+import 'package:project_test/app/pages/characters/infra/exceptions/failure.dart';
 import 'package:project_test/app/pages/characters/infra/models/character_model.dart';
 import 'package:project_test/app/pages/characters/infra/models/comic_new_model.dart';
 
 class CharactersRepositoryImpl implements CharactersRepository {
   CharactersDataSource charactersDataSource;
-  CharactersRepositoryImpl({required this.charactersDataSource});
+  final Logger _log;
+  CharactersRepositoryImpl(
+      {required this.charactersDataSource, required Logger log})
+      : _log = log;
   @override
   Future<List<CharacterModel>> getListCharacters(String aditional) async {
     try {
@@ -15,20 +20,15 @@ class CharactersRepositoryImpl implements CharactersRepository {
           data.map((character) => CharacterModel.fromJson(character)).toList();
 
       return characters;
-    } on NotAcceptable {
-      return Future.error('O servidor não pode produzir uma resposta!');
-    } on Forbidden {
-      return Future.error('Você não tem permissão!');
-    } on Conflict {
-      return Future.error(
-          'A solicitação conflitou com os recursos do servidor!');
-    } on NotFound {
-      return Future.error(
-          'Falha na requisição, pois o servidor não encontrou a rota!');
-    } on Unauthorized {
-      return Future.error('Você não está autenticado!');
-    } on DataSourceError {
-      return Future.error('Houve um erro ao carregar os dados!');
+    } on GetListCharactersTimeOutException {
+      rethrow;
+    } on GetListCharactersUnauthorizedException {
+      rethrow;
+    } on Failure {
+      rethrow;
+    } catch (err, stackTrace) {
+      _log.error('SessionRepository - getListCharacters', err, stackTrace);
+      rethrow;
     }
   }
 
@@ -40,20 +40,15 @@ class CharactersRepositoryImpl implements CharactersRepository {
           data.map((comic) => ComicNewModel.fromJson(comic)).toList();
 
       return characters;
-    } on NotAcceptable {
-      return Future.error('O servidor não pode produzir uma resposta!');
-    } on Forbidden {
-      return Future.error('Você não tem permissão!');
-    } on Conflict {
-      return Future.error(
-          'A solicitação conflitou com os recursos do servidor!');
-    } on NotFound {
-      return Future.error(
-          'Falha na requisição, pois o servidor não encontrou a rota!');
-    } on Unauthorized {
-      return Future.error('Você não está autenticado!');
-    } on DataSourceError {
-      return Future.error('Houve um erro ao carregar os dados!');
+    } on GetListComicsTimeOutException {
+      rethrow;
+    } on GetListComicsUnauthorizedException {
+      rethrow;
+    } on Failure {
+      rethrow;
+    } catch (err, stackTrace) {
+      _log.error('SessionRepository - getListComics', err, stackTrace);
+      rethrow;
     }
   }
 }

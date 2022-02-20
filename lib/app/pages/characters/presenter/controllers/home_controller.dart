@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_test/app/core/routes/routes.dart';
 import 'package:project_test/app/core/ui/widgets/notification.dart';
+import 'package:project_test/app/pages/characters/infra/exceptions/exception.dart';
+import 'package:project_test/app/pages/characters/infra/exceptions/failure.dart';
 import 'package:project_test/app/pages/characters/infra/models/character_model.dart';
 import 'package:project_test/app/pages/characters/presenter/usecases/characters_usecase.dart';
 
@@ -53,7 +55,19 @@ class HomeController extends GetxController {
 
       if (characters.isEmpty) _status.value = Status.none;
       if (characters.isNotEmpty) _status.value = Status.notEmpty;
-    } catch (e) {
+    } catch (err) {
+      if (err is GetListCharactersTimeOutException) {
+        AppNotificationToast.toastAlerta(
+            'Tempo de conexão limite encerrada!', 3);
+      } else if (err is GetListCharactersUnauthorizedException) {
+        AppNotificationToast.toastAlerta('Não autorizado', 3);
+      } else if (err is Failure) {
+        AppNotificationToast.toastAlerta(err.messageError.toString(), 3);
+        // AppNotificationToast.toastAlerta(
+        //     'Houve um erro ao carregar a lista', 3);
+      } else {
+        AppNotificationToast.toastAlerta(err.toString(), 3);
+      }
       _status.value = Status.failed;
     }
   }

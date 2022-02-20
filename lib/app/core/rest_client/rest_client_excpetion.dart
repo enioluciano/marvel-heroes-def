@@ -1,0 +1,20 @@
+import 'package:project_test/app/core/rest_client/rest_client_response.dart';
+
+class RestClientException implements Exception {
+  String? message;
+  int? statusCode;
+  dynamic error;
+  RestClientResponse? response;
+
+  RestClientException({
+    this.message,
+    this.statusCode,
+    required this.error,
+    this.response,
+  });
+
+  @override
+  String toString() {
+    return 'RestClientExcpetion(message: $message, statusCode: $statusCode, error: $error, response: $response)';
+  }
+}

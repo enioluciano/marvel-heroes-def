@@ -13,8 +13,9 @@ dynamic hash;
 
 String generateUrl(String content, {required String aditional}) {
   generateHash();
+
   String urlFinal =
-      "${Url.SERVER}$content?apikey=${Helper.publicApiKey}&hash=$hash&ts=${timeStamp.toIso8601String()}$aditional";
+      "$content?apikey=${Helper.publicApiKey}&hash=$hash&ts=${timeStamp.toIso8601String()}$aditional";
 
   return urlFinal;
 }

@@ -1,74 +1,148 @@
-import 'dart:io';
+// import 'dart:io';
 
-import 'package:dio/dio.dart';
+// import 'package:dio/dio.dart';
+// import 'package:flutter_test/flutter_test.dart';
+// import 'package:mockito/mockito.dart';
+// import 'package:project_test/app/core/rest_client/rest_client.dart';
+// import 'package:project_test/app/core/rest_client/rest_client_excpetion.dart';
+// import 'package:project_test/app/core/rest_client/rest_client_response.dart';
+// import 'package:project_test/app/pages/characters/data/datasource/remote/characters_datasource_impl.dart';
+// import 'package:project_test/app/pages/characters/infra/exceptions/exception.dart';
+// import 'package:project_test/app/pages/characters/infra/exceptions/failure.dart';
+
+// import '../../../core/helpers/logger.mocks.dart';
+// import '../../../core/rest_client/dio_rest_client.mocks.dart';
+// import '../../../core/rest_client/rest_client_exception.mocks.dart';
+// import '../../../services/dio.mocks.dart';
+
+// void main() {
+//   final dio = MockDio();
+//   final restClient = MockRestClient();
+//   final restClientException = MockRestClientException();
+//   final logger = MockLogger();
+//   final datasource =
+//       CharactersDataSourceImpl(log: logger, restClient: restClient);
+
+//   group('testing method list character in character datasource class', () {
+//     final options = RequestOptions(path: '');
+//     dynamic error;
+
+//     test('must completed and return status 200 ', () async {
+//       when(restClient.get(any)).thenAnswer((_) async =>
+//           RestClientResponse(statusCode: HttpStatus.ok, data: <String, dynamic>{
+//             'data': {
+//               'results': [{}]
+//             }
+//           }));
+
+//       final future = datasource.getListCharacters('');
+//       expect(future, completes);
+//       final result = completes;
+//       expect(result, isNotNull);
+//     });
+
+//     test('must throw datasource error when dio return status 403 ', () {
+//       dynamic error;
+//       when(restClient.get(any)).thenThrow(RestClientException(
+//         statusCode: 403,
+//         error: error,
+//       ));
+
+//       final future = datasource.getListCharacters('');
+//       expect(future, throwsA(isA<GetListCharactersUnauthorizedException>()));
+//     });
+
+//     // test('must throw conflict error when dio return status 409 ', () async {
+//     //   when(restClient.get(any)).thenThrow((_) async => RestClientException(
+//     //         error: any,
+//     //       ));
+
+//     //   final future = await datasource.getListCharacters('');
+//     //   expect(future, throwsA(isA<GetListCharactersTimeOutException>()));
+//     // });
+
+//     test('must throw Failure error when dio return status  ', () {
+//       dynamic error;
+//       when(restClient.get(any)).thenThrow(RestClientException(
+//         error: error,
+//       ));
+
+//       final future = datasource.getListCharacters('');
+//       expect(future, throwsA(isA<Failure>()));
+//     });
+
+//     // test('must throw conflict error when dio return status 403 ', () {
+//     //   dynamic error;
+//     //   when(restClient.get(any)).thenThrow(RestClientException(
+//     //     error: error,
+//     //   ));
+
+//     //   final future = datasource.getListCharacters('');
+//     //   expect(future, throwsA(isA<GetListComicsTimeOutException>()));
+//     // });
+//   });
+// }
+
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:project_test/app/core/helpers/logger.dart';
+import 'package:project_test/app/core/rest_client/rest_client.dart';
+import 'package:project_test/app/core/rest_client/rest_client_excpetion.dart';
+import 'package:project_test/app/core/rest_client/rest_client_response.dart';
 import 'package:project_test/app/pages/characters/data/datasource/remote/characters_datasource_impl.dart';
 import 'package:project_test/app/pages/characters/infra/exceptions/exception.dart';
 
-import '../../../services/dio.mocks.dart';
+class MockRestClient extends Mock implements RestClient {}
+
+class MockRestClientException extends Mock implements RestClientException {}
+
+class MockRestClientResponse extends Mock implements RestClientResponse {}
+
+class MockCharacterDatasourceImpl extends Mock
+    implements CharactersDataSourceImpl {}
+
+class MockLogger extends Mock implements Logger {}
 
 void main() {
-  final dio = MockDio();
-  final datasource = CharactersDataSourceImpl(dio: dio, server: '');
+  late RestClient _restClient;
+  late RestClientException _restclientException;
+  late RestClientResponse _restClientResponse;
+  late Logger _log;
+  late CharactersDataSourceImpl _charactersDataSourceImpl;
+  final a = MockRestClient();
+  setUp(() {
+    _restClient = MockRestClient();
+    _restclientException = MockRestClientException();
+    _restClientResponse = MockRestClientResponse();
+    _log = MockLogger();
+    _charactersDataSourceImpl = MockCharacterDatasourceImpl();
+  });
 
   group('testing method list character in character datasource class', () {
-    final options = RequestOptions(path: '');
+    List list = [];
+    test('must completed and return status 200', () async {
+      when(() => _restClient.get(any()))
+          .thenAnswer((_) async => RestClientResponse(
+                statusCode: 200,
+                data: <String, dynamic>{
+                  'data': {
+                    'results': [{}]
+                  }
+                },
+              ));
 
-    test('must completed and return status 200 ', () async {
-      when(dio.get(any)).thenAnswer((_) async => Response(
-              requestOptions: options,
-              statusCode: HttpStatus.ok,
-              data: <String, dynamic>{
-                'data': {
-                  'results': [{}]
-                }
-              }));
-
-      final future = datasource.getListCharacters('');
-      expect(future, completes);
-      final result = completes;
-      expect(result, isNotNull);
+      final future = _charactersDataSourceImpl.getListCharacters('');
+      expect(future, isNull);
     });
 
-    test('must throw datasource error when dio return status 500 ', () {
-      when(dio.get(any)).thenThrow((_) async => Response(
-            requestOptions: options,
-            statusCode: HttpStatus.internalServerError,
-          ));
+    test('must completed and return status 403', () async {
+      dynamic error;
+      when(() => _restClient.get(any())).thenThrow(RestClientException(
+          error: error,
+          response: RestClientResponse(statusCode: 403, data: error)));
 
-      final future = datasource.getListCharacters('');
-      expect(future, throwsA(isA<DataSourceError>()));
-    });
-
-    test('must throw conflict error when dio return status 409 ', () {
-      when(dio.get(any)).thenAnswer((_) async => Response(
-            requestOptions: options,
-            statusCode: HttpStatus.conflict,
-          ));
-
-      final future = datasource.getListCharacters('');
-      expect(future, throwsA(isA<Conflict>()));
-    });
-
-    test('must throw notFound error when dio return status 404 ', () {
-      when(dio.get(any)).thenAnswer((_) async => Response(
-            requestOptions: options,
-            statusCode: HttpStatus.notFound,
-          ));
-
-      final future = datasource.getListCharacters('');
-      expect(future, throwsA(isA<NotFound>()));
-    });
-
-    test('must throw conflict error when dio return status 403 ', () {
-      when(dio.get(any)).thenAnswer((_) async => Response(
-            requestOptions: options,
-            statusCode: HttpStatus.forbidden,
-          ));
-
-      final future = datasource.getListCharacters('');
-      expect(future, throwsA(isA<Forbidden>()));
+      final future = _charactersDataSourceImpl.getListCharacters('');
+      expect(future, throwsA(isA<GetListCharactersUnauthorizedException>()));
     });
   });
 }

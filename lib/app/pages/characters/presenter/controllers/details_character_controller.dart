@@ -1,4 +1,7 @@
 import 'package:get/get.dart';
+import 'package:project_test/app/core/ui/widgets/notification.dart';
+import 'package:project_test/app/pages/characters/infra/exceptions/exception.dart';
+import 'package:project_test/app/pages/characters/infra/exceptions/failure.dart';
 import 'package:project_test/app/pages/characters/infra/models/character_model.dart';
 import 'package:project_test/app/pages/characters/infra/models/comic_new_model.dart';
 import 'package:project_test/app/pages/characters/presenter/usecases/characters_usecase.dart';
@@ -27,7 +30,18 @@ class DetailsCharacterController extends GetxController {
 
       if (_comics.isEmpty) _status.value = Status.none;
       if (_comics.isNotEmpty) _status.value = Status.notEmpty;
-    } catch (e) {
+    } catch (err) {
+      if (err is GetListComicsTimeOutException) {
+        AppNotificationToast.toastAlerta(
+            'Tempo de conexão limite encerrada!', 3);
+      } else if (err is GetListComicsUnauthorizedException) {
+        AppNotificationToast.toastAlerta('Não autorizado', 3);
+      } else if (err is Failure) {
+        AppNotificationToast.toastAlerta(
+            'Houve um erro ao carregar a lista', 3);
+      } else {
+        AppNotificationToast.toastAlerta(err.toString(), 3);
+      }
       _status.value = Status.failed;
     }
   }
