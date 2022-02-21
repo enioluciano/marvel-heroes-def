@@ -16,11 +16,10 @@
 
 ## 💻 Sobre o projeto
 
-♻️ Ecoleta - é uma forma de conectar empresas e entidades de coleta de resíduos orgânicos e inorgânicos as pessoas que precisam descartar seus resíduos de maneira ecológica.
+♻️ Marvel-Heroes - é um aplicativo que apresenta heróis e vilões da Marvel com o objetivo de apresentar que cada personagem possui diversas revistas em quadrinhos.
 
 
-Projeto desenvolvido durante a **NLW - Next Level Week** oferecida pela [Rocketseat](https://blog.rocketseat.com.br/primeira-next-level-week/).
-O NLW é uma experiência online com muito conteúdo prático, desafios e hacks onde o conteúdo fica disponível durante uma semana.
+Projeto desenvolvido para efeito de estudos e aperfeiçoamento de **testes, clean code, clean archicteture, tratamento de erros, gerenciador de estado**. 
 
 ---
 
