@@ -47,7 +47,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## 🦸 Autor
 
 <a href="">
- <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/29754893?v=4" width="100px;" alt=""/>
+ <img style="border-radius: 50%;" src="https://github.com/enioluciano" width="100px;" alt=""/>
  <br />
  <sub><b>Ênio Luciano</b></sub></a> 🚀
  <br />
