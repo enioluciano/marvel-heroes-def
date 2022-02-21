@@ -25,6 +25,7 @@ Projeto desenvolvido para efeito de estudos e aperfeiçoamento de **testes, clea
   - [x] navegar pela lista de personagens
   - [x] pesquisar personagem específicos
   - [x] navegar para uma tela de detalhes mais específicos do personagem.
+  - [x] apresentar as revistas em quadrinhos dos personagem específicos 
 
 ---
 
