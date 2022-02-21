@@ -32,7 +32,7 @@ Projeto desenvolvido para efeito de estudos e aperfeiçoamento de **testes, clea
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-#### [](https://github.com/tgmarinho/Ecoleta#mobile-react-native--typescript)**Mobile**  ([Flutter](https://flutter.dev//))
+#### []**Mobile**  ([Flutter](https://flutter.dev//))
 
 -   **[GetX](https://pub.dev/packages/get/)**
 -   **[Dio](https://pub.dev/packages/dio)**
