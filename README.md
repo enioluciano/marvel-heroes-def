@@ -56,7 +56,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
  <sub><b>Ênio Luciano</b></sub></a> <a href="https://blog.rocketseat.com.br/author/thiago/" title="Rocketseat">🚀</a>
  <br />
 
-[![Linkedin Badge](https://img.shields.io/badge/-Thiago-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tgmarinho/)](https://www.linkedin.com/in/enio-barbosa/) 
+[![Linkedin Badge](https://img.shields.io/badge/-Enio-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/enio-barbosa/)](https://www.linkedin.com/in/enio-barbosa/) 
 [![Gmail Badge](https://img.shields.io/badge/-tgmarinho@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tgmarinho@gmail.com)](mailto:tgmarinho@gmail.com)
 
 ---
