@@ -24,6 +24,8 @@ class CharactersRepositoryImpl implements CharactersRepository {
       rethrow;
     } on GetListCharactersUnauthorizedException {
       rethrow;
+    } on GetListCharactersForbiddenException {
+      rethrow;
     } on Failure {
       rethrow;
     } catch (err, stackTrace) {
@@ -43,6 +45,8 @@ class CharactersRepositoryImpl implements CharactersRepository {
     } on GetListComicsTimeOutException {
       rethrow;
     } on GetListComicsUnauthorizedException {
+      rethrow;
+    } on GetListComicsForbiddenException {
       rethrow;
     } on Failure {
       rethrow;

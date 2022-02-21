@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:project_test/app/core/util/size_and_colors.dart';
 import 'package:project_test/app/pages/characters/infra/models/comic_new_model.dart';
-import 'package:project_test/app/pages/characters/ui/details_character/load_comics.dart';
+import 'package:project_test/app/pages/characters/ui/details_character/widgets/load_comics.dart';
 import '../../presenter/controllers/details_character_controller.dart';
 
 class DetailsCharacterPage extends GetView<DetailsCharacterController> {

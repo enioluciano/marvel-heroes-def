@@ -61,10 +61,10 @@ class HomeController extends GetxController {
             'Tempo de conexão limite encerrada!', 3);
       } else if (err is GetListCharactersUnauthorizedException) {
         AppNotificationToast.toastAlerta('Não autorizado', 3);
+      } else if (err is GetListCharactersForbiddenException) {
+        AppNotificationToast.toastAlerta('O servidor se recusa a autorizar', 3);
       } else if (err is Failure) {
         AppNotificationToast.toastAlerta(err.messageError.toString(), 3);
-        // AppNotificationToast.toastAlerta(
-        //     'Houve um erro ao carregar a lista', 3);
       } else {
         AppNotificationToast.toastAlerta(err.toString(), 3);
       }

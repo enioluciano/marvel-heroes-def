@@ -3,5 +3,4 @@
 class Url {
   static const CHARACTERS = 'characters';
   static const COMICS = 'comics';
-  static const SERVER = 'http://gateway.marvel.com/v1/public/';
 }

@@ -1,4 +1,4 @@
-List<Map<String, dynamic>> comic = [
+List<Map<String, dynamic>> comics = [
   {
     "id": 5589,
     "digitalId": 0,

@@ -36,6 +36,8 @@ class DetailsCharacterController extends GetxController {
             'Tempo de conexão limite encerrada!', 3);
       } else if (err is GetListComicsUnauthorizedException) {
         AppNotificationToast.toastAlerta('Não autorizado', 3);
+      } else if (err is GetListComicsForbiddenException) {
+        AppNotificationToast.toastAlerta('Não autorizado', 3);
       } else if (err is Failure) {
         AppNotificationToast.toastAlerta(
             'Houve um erro ao carregar a lista', 3);

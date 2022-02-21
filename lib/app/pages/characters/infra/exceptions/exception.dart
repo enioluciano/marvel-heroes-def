@@ -1,11 +1,13 @@
-class Conflict implements Exception {
-  String? e;
-  Conflict({this.e});
-}
-
 class GetListCharactersUnauthorizedException implements Exception {
   final String? message;
   GetListCharactersUnauthorizedException([
+    this.message,
+  ]);
+}
+
+class GetListCharactersForbiddenException implements Exception {
+  final String? message;
+  GetListCharactersForbiddenException([
     this.message,
   ]);
 }
@@ -17,9 +19,18 @@ class GetListCharactersTimeOutException implements Exception {
   ]);
 }
 
+// ** EXCEPTIONS COMICS
+
 class GetListComicsUnauthorizedException implements Exception {
   final String? message;
   GetListComicsUnauthorizedException([
+    this.message,
+  ]);
+}
+
+class GetListComicsForbiddenException implements Exception {
+  final String? message;
+  GetListComicsForbiddenException([
     this.message,
   ]);
 }
@@ -30,8 +41,3 @@ class GetListComicsTimeOutException implements Exception {
     this.message,
   ]);
 }
-
-
-
-// ATUALIZADO
-

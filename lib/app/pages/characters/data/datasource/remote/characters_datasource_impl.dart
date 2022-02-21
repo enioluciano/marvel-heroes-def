@@ -1,9 +1,8 @@
-import 'package:dio/dio.dart';
 import 'package:project_test/app/core/helpers/logger.dart';
 import 'package:project_test/app/core/rest_client/rest_client.dart';
 import 'package:project_test/app/core/rest_client/rest_client_excpetion.dart';
 import 'package:project_test/app/core/util/urls.dart';
-import 'package:project_test/app/core/util/helper.dart';
+import 'package:project_test/app/core/util/generate_key.dart';
 import 'package:project_test/app/pages/characters/infra/datasources/characters_datasource.dart';
 import 'package:project_test/app/pages/characters/infra/exceptions/exception.dart';
 import 'package:project_test/app/pages/characters/infra/exceptions/failure.dart';
@@ -42,7 +41,7 @@ class CharactersDataSourceImpl implements CharactersDataSource {
             'SessionDatasource - getListCharacters - Forbidden, código:${err.statusCode} => Servidor se recusa a autorizar ',
             err,
             stackTrace);
-        throw GetListCharactersUnauthorizedException();
+        throw GetListCharactersForbiddenException();
       }
 
       if (err.statusCode == 401) {
@@ -85,7 +84,7 @@ class CharactersDataSourceImpl implements CharactersDataSource {
             'SessionDatasource - getListComics - Forbidden, código:${err.statusCode} => Servidor se recusa a autorizar ',
             err,
             stackTrace);
-        throw GetListComicsUnauthorizedException();
+        throw GetListComicsForbiddenException();
       }
 
       if (err.statusCode == 401) {
