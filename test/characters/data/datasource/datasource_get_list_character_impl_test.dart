@@ -12,6 +12,7 @@ import '../../../core/rest_client/dio_rest_client.mocks.dart';
 void main() {
   final restClient = MockRestClient();
   final logger = MockLogger();
+
   final datasource =
       CharactersDataSourceImpl(log: logger, restClient: restClient);
 
