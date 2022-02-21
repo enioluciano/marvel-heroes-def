@@ -1,5 +1,5 @@
 <h4 align="center"> 
-	🚧  Marvel-Heroes :fire: Em construção 🚀 🚧
+	🚧  Marvel-Heroes 🦸 Em construção 🚀 🚧
 </h4>
 
 <p align="center">
@@ -12,7 +12,7 @@
 
 ## 💻 Sobre o projeto
 
-♻️ Marvel-Heroes - é um aplicativo que apresenta heróis e vilões da Marvel com o objetivo de apresentar que cada personagem possui diversas revistas em quadrinhos.
+🦸 Marvel-Heroes - é um aplicativo que apresenta heróis e vilões da Marvel com o objetivo de apresentar que cada personagem possui diversas revistas em quadrinhos.
 
 
 Projeto desenvolvido para efeito de estudos e aperfeiçoamento de **testes, clean code, clean archicteture, tratamento de erros, gerenciador de estado**. 
