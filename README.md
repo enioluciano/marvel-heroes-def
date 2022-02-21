@@ -32,3 +32,19 @@ Projeto desenvolvido para efeito de estudos e aperfeiçoamento de **testes, clea
 
 ---
 
+## 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+#### [](https://github.com/tgmarinho/Ecoleta#mobile-react-native--typescript)**Mobile**  ([Flutter](https://flutter.dev//))
+
+-   **[GetX](https://pub.dev/packages/get/)**
+-   **[Dio](https://pub.dev/packages/dio)**
+-   **[Mocktail](https://pub.dev/packages/mocktail)**
+-   **[flutter_dotenv](https://pub.dev/packages/flutter_dotenv)**
+-   **[logger](https://pub.dev/packages/logger)**
+-   **[build_runner](https://pub.dev/packages/build_runner)**
+-   **[shimmer](https://pub.dev/packages/shimmer)**
+-   **[crypto](https://pub.dev/packages/crypto)**
+-   **[bot_toast](https://pub.dev/packages/bot_toast)**
+
