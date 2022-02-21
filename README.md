@@ -46,10 +46,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## 🦸 Autor
 
-<a href="https://blog.rocketseat.com.br/author/thiago/">
+<a href="">
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/29754893?v=4" width="100px;" alt=""/>
  <br />
- <sub><b>Ênio Luciano</b></sub></a> <a href="https://blog.rocketseat.com.br/author/thiago/" title="Rocketseat">🚀</a>
+ <sub><b>Ênio Luciano</b></sub></a> title="Rocketseat">🚀
  <br />
 
 [![Linkedin Badge](https://img.shields.io/badge/-Enio-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/enio-barbosa/)](https://www.linkedin.com/in/enio-barbosa/) 
