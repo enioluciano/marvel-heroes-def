@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_test/app/core/routes/app_routes.dart';
 import 'package:project_test/app/core/routes/routes.dart';
+import 'package:project_test/app/core/ui/application_config_start.dart';
 import 'package:project_test/app/core/util/size_and_colors.dart';
 
 void main() async {
+  await ApplicationConfigStart().configureApp();
   runApp(const MyApp());
 }
 

@@ -2,9 +2,9 @@ import 'package:logger/logger.dart' as log;
 
 abstract class Logger {
   void debug(dynamic message, [dynamic error, StackTrace? stackTrace]);
-  void info(dynamic message, {dynamic error, StackTrace? stackTrace});
+  void info(dynamic message, [dynamic error, StackTrace? stackTrace]);
   void warning(dynamic message, {dynamic error, StackTrace? stackTrace});
-  void error(dynamic message, {dynamic error, StackTrace? stackTrace});
+  void error(dynamic message, [dynamic error, StackTrace? stackTrace]);
   void append(dynamic message);
   void closeAppend();
 }
@@ -19,12 +19,12 @@ class LoggerImpl implements Logger {
   }
 
   @override
-  void error(message, {error, StackTrace? stackTrace}) {
+  void error(message, [error, StackTrace? stackTrace]) {
     logger.e(message, error, stackTrace);
   }
 
   @override
-  void info(message, {error, StackTrace? stackTrace}) {
+  void info(message, [error, StackTrace? stackTrace]) {
     logger.i(message, error, stackTrace);
   }
 

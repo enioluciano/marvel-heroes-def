@@ -1,14 +1,43 @@
-class NotFound implements Exception {}
-
-class Forbidden implements Exception {}
-
-class NotAcceptable implements Exception {}
-
-class Conflict implements Exception {
-  String? e;
-  Conflict({this.e});
+class GetListCharactersUnauthorizedException implements Exception {
+  final String? message;
+  GetListCharactersUnauthorizedException([
+    this.message,
+  ]);
 }
 
-class Unauthorized implements Exception {}
+class GetListCharactersForbiddenException implements Exception {
+  final String? message;
+  GetListCharactersForbiddenException([
+    this.message,
+  ]);
+}
 
-class DataSourceError implements Exception {}
+class GetListCharactersTimeOutException implements Exception {
+  final String? message;
+  GetListCharactersTimeOutException([
+    this.message,
+  ]);
+}
+
+// ** EXCEPTIONS COMICS
+
+class GetListComicsUnauthorizedException implements Exception {
+  final String? message;
+  GetListComicsUnauthorizedException([
+    this.message,
+  ]);
+}
+
+class GetListComicsForbiddenException implements Exception {
+  final String? message;
+  GetListComicsForbiddenException([
+    this.message,
+  ]);
+}
+
+class GetListComicsTimeOutException implements Exception {
+  final String? message;
+  GetListComicsTimeOutException([
+    this.message,
+  ]);
+}

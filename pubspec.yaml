@@ -45,6 +45,9 @@ dependencies:
   mockito: ^5.0.16
   build_runner: ^2.1.5
   logger: ^1.1.0
+  flutter_dotenv: ^5.0.2
+
+  mocktail: ^0.2.0
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +76,7 @@ flutter:
   assets:
     - assets/json/
     - assets/images/
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
