@@ -12,7 +12,7 @@
 
 ## 💻 Sobre o projeto
 
-🦸 Marvel-Heroes - é um aplicativo que apresenta os heróis e vilões da Marvel. O aplicativo apresenta diversos personagens das marvel e as respectivas revistas em quadrinhos em que o personagem participou.
+🦸 Marvel-Heroes - é um aplicativo que apresenta os heróis e vilões da Marvel. O aplicativo apresenta diversos personagens das marvel e suas respectivas revistas em quadrinhos em que o personagem participou.
 
 
 Projeto desenvolvido para efeito de estudos e aperfeiçoamento de **testes, clean code, clean archicteture, tratamento de erros, gerenciador de estado**. 
