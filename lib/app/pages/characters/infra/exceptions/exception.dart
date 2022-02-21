@@ -10,6 +10,13 @@ class GetListCharactersUnauthorizedException implements Exception {
   ]);
 }
 
+class GetListCharactersForbiddenException implements Exception {
+  final String? message;
+  GetListCharactersForbiddenException([
+    this.message,
+  ]);
+}
+
 class GetListCharactersTimeOutException implements Exception {
   final String? message;
   GetListCharactersTimeOutException([

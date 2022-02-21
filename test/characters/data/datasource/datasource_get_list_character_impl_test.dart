@@ -94,10 +94,6 @@ import 'package:project_test/app/pages/characters/infra/exceptions/exception.dar
 
 class MockRestClient extends Mock implements RestClient {}
 
-class MockRestClientException extends Mock implements RestClientException {}
-
-class MockRestClientResponse extends Mock implements RestClientResponse {}
-
 class MockCharacterDatasourceImpl extends Mock
     implements CharactersDataSourceImpl {}
 
@@ -105,21 +101,18 @@ class MockLogger extends Mock implements Logger {}
 
 void main() {
   late RestClient _restClient;
-  late RestClientException _restclientException;
-  late RestClientResponse _restClientResponse;
+
   late Logger _log;
   late CharactersDataSourceImpl _charactersDataSourceImpl;
-  final a = MockRestClient();
+
   setUp(() {
     _restClient = MockRestClient();
-    _restclientException = MockRestClientException();
-    _restClientResponse = MockRestClientResponse();
     _log = MockLogger();
-    _charactersDataSourceImpl = MockCharacterDatasourceImpl();
+    _charactersDataSourceImpl =
+        CharactersDataSourceImpl(restClient: _restClient, log: _log);
   });
 
   group('testing method list character in character datasource class', () {
-    List list = [];
     test('must completed and return status 200', () async {
       when(() => _restClient.get(any()))
           .thenAnswer((_) async => RestClientResponse(
@@ -132,14 +125,22 @@ void main() {
               ));
 
       final future = _charactersDataSourceImpl.getListCharacters('');
-      expect(future, isNull);
+      expect(future, completes);
     });
 
     test('must completed and return status 403', () async {
       dynamic error;
-      when(() => _restClient.get(any())).thenThrow(RestClientException(
-          error: error,
-          response: RestClientResponse(statusCode: 403, data: error)));
+      when(() => _restClient.get(any()))
+          .thenThrow(RestClientException(error: error, statusCode: 403));
+
+      final future = _charactersDataSourceImpl.getListCharacters('');
+      expect(future, throwsA(isA<GetListCharactersForbiddenException>()));
+    });
+
+    test('must completed and return status 401', () async {
+      dynamic error;
+      when(() => _restClient.get(any()))
+          .thenThrow(RestClientException(error: error, statusCode: 401));
 
       final future = _charactersDataSourceImpl.getListCharacters('');
       expect(future, throwsA(isA<GetListCharactersUnauthorizedException>()));

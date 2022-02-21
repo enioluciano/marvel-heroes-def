@@ -42,7 +42,7 @@ class CharactersDataSourceImpl implements CharactersDataSource {
             'SessionDatasource - getListCharacters - Forbidden, código:${err.statusCode} => Servidor se recusa a autorizar ',
             err,
             stackTrace);
-        throw GetListCharactersUnauthorizedException();
+        throw GetListCharactersForbiddenException();
       }
 
       if (err.statusCode == 401) {
