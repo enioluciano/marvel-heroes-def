@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:project_test/app/pages/characters/infra/models/character_model.dart';
 
-import '../../../util/character_model.dart';
+import '../../../util/response_body_character_api.dart';
 
 void main() {
   final data = response['data']['results'];
