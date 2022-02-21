@@ -1,5 +1,5 @@
 <h4 align="center"> 
-	🚧  Marvel-Heroes ♻️ Em construção:fire: 🚀 🚧
+	🚧  Marvel-Heroes :fire: Em construção 🚀 🚧
 </h4>
 
 <p align="center">
